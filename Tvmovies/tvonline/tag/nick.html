@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true' }" 
+      :class="{ 'dark': darkMode }"
+      x-init="$watch('darkMode', value => localStorage.setItem('darkMode', value.toString()))">
+
+<!-- Mirrored from Tvmovies/tvonline/tag/nick by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Jan 2025 13:28:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <title>Watch Nick TV Channels Online - TV Online</title>
+        <style>
+    .ad-container {
+        width: 100%;
+        margin: 1rem 0;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    .ad-above_player {
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Ensure player container is above the ad */
+    .aspect-video {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .ad-between_content {
+        margin: 2rem 0;
+    }
+    
+    .ad-left_sidebar,
+    .ad-right_sidebar {
+        position: sticky;
+        top: 1rem;
+    }
+    
+    @media (max-width: 1024px) {
+        .ad-left_sidebar,
+        .ad-right_sidebar {
+            display: none;
+        }
+    }
+    
+    /* Player and Ad Container */
+    .aspect-video {
+        position: relative;
+    }
+
+    /* Preload ad overlay */
+    .preload-ad-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .preload-ad-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    /* Only block player interaction when preload ad is showing */
+    .preload-ad-overlay ~ .jwplayer,
+    .preload-ad-overlay ~ .player-wrapper {
+        pointer-events: none;
+    }
+
+    .preload-ad-overlay ~ .jwplayer.ad-finished,
+    .preload-ad-overlay ~ .player-wrapper.ad-finished {
+        pointer-events: auto;
+    }
+
+    /* Ensure ad content is responsive */
+    .preload-ad-container iframe,
+    .preload-ad-container img,
+    .preload-ad-container video {
+        max-width: 90%;
+        max-height: 90%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Prevent interaction with elements behind the ad */
+    .preload-ad-overlay * {
+        pointer-events: auto;
+    }
+    
+    .preload-ad-container > * {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .preload-ad-skip {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        cursor: not-allowed;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+    
+    .preload-ad-skip.active {
+        background: #3b82f6;
+        cursor: pointer !important;
+    }
+    
+    .preload-ad-skip.active:hover {
+        background: #2563eb;
+    }
+    
+    @media (max-width: 640px) {
+        .preload-ad-container {
+            padding: 0.5rem;
+        }
+        
+        .preload-ad-skip {
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+        }
+    }
+    </style>
+        <!-- Force HTTPS for all resources -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="Browse and watch 1 TV channels tagged with 'Nick'. Stream your favorite Nick channels live online in high quality.">
+        <meta name="keywords" content="Nick, tv channels, live streaming, watch online, Nick tv, live tv, online streaming">
+    
+    <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Watch Nick TV Channels Online - TV Online">
+    <meta property="og:description" content="Browse and watch 1 TV channels tagged with 'Nick'. Stream your favorite Nick channels live online in high quality.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://Tvmovies/tvonline/tag/nick">
+        <meta property="og:image" content="http://Tvmovies/tvonline/uploads/images/6767fae5c8b8b_1734867685.png">
+        <meta property="og:site_name" content="TV Online">
+    
+    <!-- Tailwind CSS -->
+    <link href="../public/css/styles.css" rel="stylesheet">
+    <!-- Prevent flash of unstyled content -->
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+        html.dark {
+            background: #111827;
+            color: #fff;
+        }
+        .dark .dark\:text-gray-300 {
+            color: rgb(209 213 219);
+        }
+        .text-gray-700 {
+            color: rgb(55 65 81);
+        }
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    <script>
+        // Apply dark mode immediately before DOM loads
+        if (localStorage.getItem('darkMode') === null || localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <!-- Alpine.js -->
+    <script defer src="../../../cdn.jsdelivr.net/npm/alpinejs%403.x.x/dist/cdn.min.js" crossorigin="anonymous"></script>
+    
+    <!-- JW Player (Free Version) -->
+    <script src="../../../ssl.p.jwpcdn.com/player/v/8.24.0/jwplayer.js" crossorigin="anonymous"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        [x-cloak] { display: none !important; }
+        .dark { color-scheme: dark; }
+        
+        /* Dropdown menu styles */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.15s ease-out;
+            pointer-events: none;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+
+    <!-- Page-specific scripts -->
+    </head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300" x-data="{ mobileMenuOpen: false }">
+    <!-- Top Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="w-48 flex-shrink-0 flex items-center">
+                                            <a href="../index.html">
+                            <img src="../uploads/images/6769588c49213_1734957196.png" 
+                                 alt="TV Online Logo"
+                                 class="h-12 w-auto">
+                        </a>
+                                    </div>
+
+                <!-- Search Bar (Desktop) -->
+                <div class="hidden md:flex items-center justify-center flex-1 mx-4">
+                    <form action="https://Tvmovies/tvonline/search" method="GET" class="w-full max-w-2xl">
+                        <div class="relative">
+                            <input type="text" name="q" placeholder="Search..." 
+                                   class="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border-0 focus:ring-2 focus:ring-primary text-gray-700 dark:text-gray-300">
+                            <button type="submit" class="absolute right-0 top-0 mt-2 mr-2">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Menu -->
+                <div class="w-48 flex items-center justify-end space-x-4">
+                    <!-- Mobile Menu Button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button @click="darkMode = !darkMode" 
+                            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
+                        <svg x-cloak x-show="!darkMode" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg x-cloak x-show="darkMode" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md mt-1">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 h-14">
+                <a href="../index.html" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Home</span>
+                </a>
+                                <div x-data="{ open: false }" 
+                     x-on:mouseenter="open = true" 
+                     x-on:mouseleave="open = false" 
+                     x-on:click.away="open = false"
+                     class="relative flex items-center">
+                    <div class="flex items-center h-14 space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary cursor-pointer">
+                        <a href="../categories.html" class="flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            <span>Categories</span>
+                        </a>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <!-- Dropdown menu -->
+                    <div x-cloak
+                         x-show="open"
+                         class="dropdown-menu absolute left-0 top-14 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50 border-t border-gray-100 dark:border-gray-700"
+                         :class="{ 'show': open }"
+                         x-transition:enter="transition ease-out duration-100"
+                         x-transition:enter-start="opacity-0 transform scale-95"
+                         x-transition:enter-end="opacity-100 transform scale-100"
+                         x-transition:leave="transition ease-in duration-75"
+                         x-transition:leave-start="opacity-100 transform scale-100"
+                         x-transition:leave-end="opacity-0 transform scale-95">
+                        <div class="py-1" role="menu" aria-orientation="vertical">
+                                                        <a href="../category/news.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-newspaper text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                News                            </a>
+                                                        <a href="../category/movies.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-film text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Movies                            </a>
+                                                        <a href="../category/sport.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-futbol text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Sport                            </a>
+                                                        <a href="../category/documentary.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-book text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Documentary                            </a>
+                                                        <a href="../category/music.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-music text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Music                            </a>
+                                                        <a href="../category/auto.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-car text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Auto                            </a>
+                                                        <a href="../category/kids.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-child text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Kids                            </a>
+                                                        <a href="../category/entertainment.html" 
+                               class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                               role="menuitem">
+                                <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                            <i class="fas fa-tv text-sm text-gray-600 dark:text-gray-300"></i>
+                                                                    </div>
+                                Entertainment                            </a>
+                                                    </div>
+                    </div>
+                </div>
+                <a href="../channels.html" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span>TV Channels</span>
+                </a>
+                            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden" x-cloak x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="../channels.html" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span>TV Channels</span>
+                </a>
+                <div x-data="{ showCategories: false }" class="w-full">
+                    <button @click="showCategories = !showCategories" class="flex items-center justify-between w-full text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            <span>Categories</span>
+                        </div>
+                        <svg class="w-5 h-5 transform transition-transform duration-200" :class="{ 'rotate-180': showCategories }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="showCategories" class="pl-10 pr-3 py-2 space-y-1">
+                                                <a href="../category/news.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-newspaper text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            News                        </a>
+                                                <a href="../category/movies.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-film text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Movies                        </a>
+                                                <a href="../category/sport.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-futbol text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Sport                        </a>
+                                                <a href="../category/documentary.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-book text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Documentary                        </a>
+                                                <a href="../category/music.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-music text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Music                        </a>
+                                                <a href="../category/auto.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-car text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Auto                        </a>
+                                                <a href="../category/kids.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-child text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Kids                        </a>
+                                                <a href="../category/entertainment.html" 
+                           class="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white py-2 text-sm">
+                            <div class="w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-full mr-2">
+                                                                    <i class="fas fa-tv text-sm text-gray-600 dark:text-gray-300"></i>
+                                                            </div>
+                            Entertainment                        </a>
+                                            </div>
+                </div>
+                                <!-- Search Bar (Mobile) -->
+                <form action="https://Tvmovies/tvonline/search" method="GET" class="px-3 py-2">
+                    <div class="relative">
+                        <input type="text" name="q" placeholder="Search channels..." 
+                               class="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary text-gray-700 dark:text-gray-300">
+                        <button type="submit" class="absolute right-0 top-0 mt-2 mr-2">
+                            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    <div class="max-w-7xl mx-auto px-4 mt-4">
+            </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+<!-- Page Header -->
+<div class="bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="flex-1 min-w-0">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+                    Channels tagged with 'Nick'
+                </h1>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Found 1 channel                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Channel Grid -->
+<div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <a href="../channel/nickmusic-united-states.html" 
+           class="group bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover:shadow-md">
+                        <div class="relative pt-[56.25%]">
+                <img src="../uploads/channel-icons/676855731da8d_NickMusic.svg.png" 
+                     alt="NickMusic (United States)"
+                     class="absolute inset-0 w-full h-full object-cover">
+            </div>
+                        
+            <div class="p-3">
+                <h3 class="font-medium text-gray-800 dark:text-gray-200 line-clamp-1">
+                    NickMusic (United States)                </h3>
+                
+                                <div class="mt-2 flex flex-wrap gap-2">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                        Music                    </span>
+                                    </div>
+                                
+            </div>
+        </a>
+            </div>
+
+    <!-- Pagination -->
+    
+    </div>
+
+</main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-lg mt-8">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Site Info -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">TV Online</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Watch Live TV Channels Online</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Home</a></li>
+                        <li><a href="../channels.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Channels</a></li>
+                        <li><a href="../categories.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Categories</a></li>
+                        <li><a href="../contact.html" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">Contact</a></li>
+                                                <li>
+                            <a href="../page/terms-and-conditions.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Terms and conditions                            </a>
+                        </li>
+                                            </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Categories</h3>
+                                        <ul class="space-y-2">
+                                                <li>
+                            <a href="../category/auto.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Auto                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/documentary.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Documentary                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/entertainment.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Entertainment                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/kids.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Kids                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/movies.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Movies                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/music.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Music                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/news.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                News                            </a>
+                        </li>
+                                                <li>
+                            <a href="../category/sport.html" 
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+                                Sport                            </a>
+                        </li>
+                                            </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-600 dark:text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="https://Tvmovies/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2140454c484f6155574e4f4d484f440f424e4c">[email&#160;protected]</a>                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-600 dark:text-gray-400">
+                    &copy; 2025 TV Online. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Initialize Video.js players
+        document.addEventListener('DOMContentLoaded', function() {
+            const players = document.querySelectorAll('.video-js');
+            players.forEach(player => {
+                videojs(player.id);
+            });
+        });
+    </script>
+        <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="http://analytics.techyhub.co/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fec87cbf886791e","version":"2024.10.5","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"c74760c40c584b4780be35099c875a44","b":1}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from Tvmovies/tvonline/tag/nick by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Jan 2025 13:28:26 GMT -->
+</html>
