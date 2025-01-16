@@ -146,12 +146,12 @@
     </style>
         <!-- Force HTTPS for all resources -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta name="description" content="Venom (HD) live tv">
+    <meta name="Synopsis" content="Venom (HD) live tv">
         <meta name="keywords" content="24 hours free movies, free movies">
     
     <!-- Open Graph Meta Tags -->
         <meta property="og:title" content="Venom (HD) - TV Online">
-    <meta property="og:description" content="Venom (HD) live tv">
+    <meta property="og:Synopsis" content="Venom (HD) live tv">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anym3u8player.com/tvonline/channel/24-hour-free-movies">
         <meta property="og:image" content="http://anym3u8player.com/tvonline/uploads/images/6765be135647e_images.png">
@@ -274,7 +274,7 @@
                 playbackRateControls: false,
                 image: "https://www.kaltura.com/api_v3/index.php/service/thumbasset/action/serve/ks/djJ8MzI1MzAwM3zymHtCKXN9cqUACBZhfapPmdI04_ernr1Ibc8wT6M3tpjq6C-nM1ztKYdojZVILsnp6DeHbxSkP6fbDSo-WpZEGZfuAo8RXBujR9Vw_ji2D_mQ0lWuUyYHuW8EmDGHd7w_34D3HxPZyXYx76AjeM6_/thumbAssetId/1_n1ph3zyn",
                 displaytitle: true,
-                displaydescription: false,
+                displaySynopsis: false,
                 debug: false
             };
 
@@ -759,7 +759,7 @@
                                     <p class="text-sm text-gray-500 dark:text-gray-400">
                                         Please describe the issue you're experiencing with this channel.
                                     </p>
-                                    <textarea id="report-description"
+                                    <textarea id="report-Synopsis"
                                             class="mt-2 w-full px-3 py-2 text-gray-700 dark:text-gray-300 border rounded-lg focus:outline-none focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700"
                                             rows="4"
                                             placeholder="Describe the issue..."></textarea>
@@ -808,8 +808,8 @@
 
     <script>
     function submitReport(channelId) {
-        const description = document.getElementById('report-description').value;
-        if (!description.trim()) {
+        const Synopsis = document.getElementById('report-Synopsis').value;
+        if (!Synopsis.trim()) {
             alert('Please describe the issue before submitting.');
             return;
         }
@@ -819,7 +819,7 @@
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `channel_id=${channelId}&description=${encodeURIComponent(description)}`
+            body: `channel_id=${channelId}&Synopsis=${encodeURIComponent(Synopsis)}`
         })
         .then(response => response.json())
         .then(data => {
@@ -1249,7 +1249,7 @@ body {
                         playbackRateControls: false,
                         image: "https://image.tmdb.org/t/p/original/3mpZ5NA53V2Y4wmwcQI4sdc3jmy.jpg",
                         displaytitle: true,
-                        displaydescription: false,
+                        displaySynopsis: false,
                         debug: false
                     };
 
@@ -1370,15 +1370,15 @@ body {
             <!-- Tabs Navigation -->
             <div class="border-b border-gray-200 dark:border-gray-700">
                 <nav class="flex">
-                    <button onclick="switchTab('description')" id="tab-description" 
+                    <button onclick="switchTab('Synopsis')" id="tab-Synopsis" 
                             class="flex-1 px-4 py-3 text-center border-b-2 font-medium text-sm border-blue-500 text-blue-600 dark:text-blue-400 transition-all duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-500 after:transform after:scale-x-100 after:transition-transform after:duration-200">
-                        Description
+                        Synopsis
                     </button>
                                     </nav>
             </div>
 
-            <!-- Description Tab -->
-            <div id="content-description" class="p-4">
+            <!-- Synopsis Tab -->
+            <div id="content-Synopsis" class="p-4">
                                     <div class="prose dark:prose-invert max-w-none prose-sm sm:prose-base prose-p:my-2 prose-headings:my-3 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-lg prose-ul:list-disc prose-ol:list-decimal">
                         <p>Eddie et Venom sont en cavale. Chacun est traqué par ses semblables et alors que l'étau se resserre, le duo doit prendre une dé</p>                    </div>
                             </div>
@@ -1578,7 +1578,7 @@ body {
 <script>
 function switchTab(tabName) {
     // Get all tab buttons and content
-    const tabs = ['description', 'program'];
+    const tabs = ['Synopsis', 'program'];
     
     // Update all tabs
     tabs.forEach(tab => {
